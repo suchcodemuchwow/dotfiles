@@ -57,5 +57,6 @@ cask "syntax-highlight"
 cask "vlc"
 cask "warp"
 cask "webstorm"
+mas "Accelerate", id: 1459809092
 mas "Bitwarden", id: 1352778147
 mas "Klack", id: 6446206067
