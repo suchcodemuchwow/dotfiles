@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+source /Users/dev/dotfiles/tilde/.zshrc
+
+# Change directory to ~/dotfiles
+cd ~/dotfiles
+
+# Runs update commands
+upup daily
+
+rm -rf ~/dotfiles/tilde/global_packages.json
+pnpm ls -g --depth=0 --json | jq '.[].unsavedDependencies |= null' | jq 'del(.[].unsavedDependencies)' > ~/dotfiles/tilde/global_packages.json
+
+brew bundle dump --force --file=~/dotfiles/setup/Brewfile
+
+mackup backup
+
+# Run git commands
+git add .
+
+# if anything in staging area
+if [ -n "$(git status --porcelain)" ]; then
+  aicommits --type conventional
+  git push
+fi

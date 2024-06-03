@@ -1,0 +1,68 @@
+[
+  {
+    "path": "/Users/dev/Library/pnpm/global/5",
+    "private": false,
+    "dependencies": {
+      "@nestjs/cli": {
+        "from": "@nestjs/cli",
+        "version": "10.3.2",
+        "resolved": "https://registry.npmjs.org/@nestjs/cli/-/cli-10.3.2.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/@nestjs+cli@10.3.2/node_modules/@nestjs/cli"
+      },
+      "@openapitools/openapi-generator-cli": {
+        "from": "@openapitools/openapi-generator-cli",
+        "version": "2.13.4",
+        "resolved": "https://registry.npmjs.org/@openapitools/openapi-generator-cli/-/openapi-generator-cli-2.13.4.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/@openapitools+openapi-generator-cli@2.13.4_encoding@0.1.13/node_modules/@openapitools/openapi-generator-cli"
+      },
+      "aicommits": {
+        "from": "aicommits",
+        "version": "1.11.0",
+        "resolved": "https://registry.npmjs.org/aicommits/-/aicommits-1.11.0.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/aicommits@1.11.0_patch_hash=lycqasy7sydl4xydg7s2txkt2i/node_modules/aicommits"
+      },
+      "depcheck": {
+        "from": "depcheck",
+        "version": "1.4.7",
+        "resolved": "https://registry.npmjs.org/depcheck/-/depcheck-1.4.7.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/depcheck@1.4.7/node_modules/depcheck"
+      },
+      "mintlify": {
+        "from": "mintlify",
+        "version": "4.0.162",
+        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.162.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.162_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/mintlify"
+      },
+      "npm-check-updates": {
+        "from": "npm-check-updates",
+        "version": "16.14.20",
+        "resolved": "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-16.14.20.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/npm-check-updates@16.14.20/node_modules/npm-check-updates"
+      },
+      "spotify-dl": {
+        "from": "spotify-dl",
+        "version": "1.1.2",
+        "resolved": "https://registry.npmjs.org/spotify-dl/-/spotify-dl-1.1.2.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/spotify-dl@1.1.2_encoding@0.1.13/node_modules/spotify-dl"
+      },
+      "tsx": {
+        "from": "tsx",
+        "version": "4.11.2",
+        "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.11.2.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/tsx@4.11.2/node_modules/tsx"
+      },
+      "turbo": {
+        "from": "turbo",
+        "version": "1.13.3",
+        "resolved": "https://registry.npmjs.org/turbo/-/turbo-1.13.3.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/turbo@1.13.3/node_modules/turbo"
+      },
+      "vercel": {
+        "from": "vercel",
+        "version": "34.2.4",
+        "resolved": "https://registry.npmjs.org/vercel/-/vercel-34.2.4.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/vercel@34.2.4_encoding@0.1.13/node_modules/vercel"
+      }
+    }
+  }
+]

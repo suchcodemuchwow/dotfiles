@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Based on http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/
+
+# Common stuff
+CYAN="$(tput setaf 6)"
+UNDERLINE="$(tput sgr 0 1)"
+RESET="$(tput sgr0)"
+
+header() {
+  echo -e "$UNDERLINE$CYAN$1$RESET"
+}
+
+if [ "$1" = "" ]; then
+  echo "Usage: $(basename $0) <file> ..."
+  exit
+fi
+
+header "Weasel words"
+lint-weasel-words $1
+echo
+
+header "Passive voice"
+lint-passive-voice $1
+echo
+
+header "Duplicates"
+lint-dups $1

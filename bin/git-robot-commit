@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Save the current working directory
+initial_location=$(pwd)
+
+# Change directory to ~/dotfiles
+cd ~/dotfiles
+
+# Run git commands
+git add .
+git commit -m "chore: dump Brewfile-$(date +%d-%m-%Y-%H-%M-%S)"
+git push
+
+# Go back to the initial location
+cd $initial_location

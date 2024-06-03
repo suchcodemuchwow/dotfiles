@@ -1,0 +1,168 @@
+## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
+## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
+## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
+
+"$schema" = 'https://starship.rs/config-schema.json'
+palette = "catppuccin_mocha"
+
+format = "$all"
+right_format = """$cmd_duration"""
+
+add_newline = true
+command_timeout = 10000
+
+[line_break]
+# Set to true if using Warp. False if iTerm2
+disabled = true
+
+[character]
+success_symbol = "[❯](sapphire)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[  ](green)"
+
+[hostname]
+ssh_only = true
+format = "[$hostname](bold blue) "
+disabled = false
+
+[cmd_duration]
+min_time = 1
+format = "[](fg:surface0 bg:none)[$duration]($style)[](fg:surface0 bg:surface0)[](fg:mauve bg:surface0)[](fg:surface0 bg:mauve)[](fg:mauve bg:none) "
+disabled = false
+style = "fg:text bg:surface0"
+
+[directory]
+format = "[](fg:blue bg:none)[](fg:surface0 bg:blue)[](fg:blue bg:none)[](fg:surface0 bg:none)[$path]($style)[](fg:surface0 bg:none) "
+style = "fg:text bg:surface0"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+format = "[](fg:green bg:none)[](fg:surface0 bg:green)[](fg:green bg:none)[](fg:surface0 bg:none)[$branch]($style)[](fg:surface0 bg:none) "
+style = "fg:text bg:surface0"
+
+[git_status]
+format = "[](fg:teal bg:none)[](fg:surface0 bg:teal)[](fg:teal bg:none)[](fg:surface0 bg:none)[$all_status$ahead_behind]($style)[](fg:surface0 bg:none) "
+style = "fg:text bg:surface0"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = "  "
+untracked = "?${count}"
+stashed = " 󱉙"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "󰩹${count}"
+
+[git_commit]
+format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
+style = "green"
+
+[git_state]
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style = "yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+[aws]
+disabled = false
+[azure]
+format = " [$symbol($subscription)]($style) "
+disabled = false
+[buf]
+format = " [$symbol($version )]($style)"
+[bun]
+format = " [$symbol($version )]($style)"
+[c]
+format = " [$symbol($version(-$name) )]($style)"
+[conda]
+format = "[$symbol$environment](dimmed green) "
+[crystal]
+format = " [$symbol($version )]($style)"
+[daml]
+format = " [D $version](bold bright-green) "
+[dart]
+format = " [$symbol($version )]($style)"
+[deno]
+format = " [$symbol($version )]($style)'"
+[docker_context]
+format = " [$symbol$context]($style) "
+[dotnet]
+format = " [$symbol($version )(🎯 $tfm )]($style)"
+[elixir]
+format = ' [$symbol($version \(OTP $otp_version\) )]($style)'
+[elm]
+format = " [$symbol($version )]($style)"
+[erlang]
+format = " [$symbol($version )]($style)"
+[fennel]
+format = " [$symbol($version )]($style)"
+[gcloud]
+disabled = false
+[golang]
+format = " [$symbol($version )]($style)"
+[guix_shell]
+format = " [$symbol]($style)"
+[gradle]
+format = " [$symbol($version )]($style)"
+[haskell]
+format = " [$symbol($version )]($style)"
+[haxe]
+format = " [$symbol($version )]($style)"
+[helm]
+format = " [$symbol($version )]($style)"
+[java]
+format = " [${symbol}(${version} )]($style)"
+[julia]
+format = " [$symbol($version )]($style)"
+[kotlin]
+format = " [$symbol($version )]($style)"
+[lua]
+format = " [$symbol($version )]($style)"
+[nodejs]
+format = " [$symbol($version )]($style)"
+[package]
+format = " [$symbol$version]($style) "
+[python]
+format = ' [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+[ruby]
+format = " [$symbol($version )]($style)"
+[rust]
+format = " [$symbol($version )]($style)"
+[zig]
+format = " [$symbol($version )]($style)"
