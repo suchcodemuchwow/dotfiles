@@ -29,9 +29,9 @@
       },
       "mintlify": {
         "from": "mintlify",
-        "version": "4.0.163",
-        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.163.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.163_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/mintlify"
+        "version": "4.0.164",
+        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.164.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.164_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/mintlify"
       },
       "npm-check-updates": {
         "from": "npm-check-updates",
@@ -53,15 +53,15 @@
       },
       "turbo": {
         "from": "turbo",
-        "version": "1.13.3",
-        "resolved": "https://registry.npmjs.org/turbo/-/turbo-1.13.3.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/turbo@1.13.3/node_modules/turbo"
+        "version": "1.13.4",
+        "resolved": "https://registry.npmjs.org/turbo/-/turbo-1.13.4.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/turbo@1.13.4/node_modules/turbo"
       },
       "vercel": {
         "from": "vercel",
-        "version": "34.2.4",
-        "resolved": "https://registry.npmjs.org/vercel/-/vercel-34.2.4.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/vercel@34.2.4_encoding@0.1.13/node_modules/vercel"
+        "version": "34.2.5",
+        "resolved": "https://registry.npmjs.org/vercel/-/vercel-34.2.5.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/vercel@34.2.5_encoding@0.1.13/node_modules/vercel"
       }
     }
   }

@@ -6,16 +6,6 @@ set -e
 set -u
 set -o pipefail
 
-header() {
-  echo "$(tput sgr 0 1)$(tput setaf 6)$1$(tput sgr0)"
-}
-
-warning() {
-  tput setaf 1
-  echo "/!\\ $1 /!\\"
-  tput sgr0
-}
-
 # Dotfiles
 # dotfiles
 # echo
@@ -24,23 +14,23 @@ caller=$1
 
 if [[ $caller != "daily" ]]; then
   # Ask for the administrator password upfront
-  warning "Activate sudo"
+  echo "Activate sudo"
   sudo echo "Sudo activated!"
   echo
 
   # macOS
-  header "Updating macOS system..."
+  echo "Updating macOS system..."
   sudo softwareupdate -ia --verbose
   echo
   # App Store
   # https://github.com/mas-cli/mas?tab=readme-ov-file#%EF%B8%8F-known-issues
-  header "Updating apps from App Store..."
+  echo "Updating apps from App Store..."
   sudo mas upgrade
   echo
 fi
 
 # Homebrew
-header "Updating Homebrew packages..."
+echo "Updating Homebrew packages..."
 brew update
 brew upgrade
 brew cleanup
@@ -49,15 +39,15 @@ echo
 
 if [[ $caller != "daily" ]]; then
 # Raycast
-header "Updating Raycast and its extensions..."
+echo "Updating Raycast and its extensions..."
 open raycast://extensions/raycast/raycast/check-for-updates
 open raycast://extensions/raycast/raycast/check-for-extension-updates
 fi
 
 # npm
-header "Updating global pnpm modules..."
+echo "Updating global pnpm modules..."
 pnpm update -g
 echo
 
 # Print Job success message and date
-header "Job done! $(date)"
+echo "Job done! $(date)"
