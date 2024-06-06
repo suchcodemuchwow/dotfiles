@@ -375,13 +375,13 @@ defaults write -g CheckSpellingWhileTyping -boolean true
 # Enable continuous spell checking everywhere (don't know what it means)
 defaults write -g WebContinuousSpellCheckingEnabled -boolean true
 
-# Spotlight menu keyboard shortcut: none
-/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.symbolichotkeys.plist" -c 'Delete AppleSymbolicHotKeys:64' > /dev/null 2>&1
-/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.symbolichotkeys.plist" -c 'Add AppleSymbolicHotKeys:64:enabled bool false'
-
-# Spotlight window keyboard shortcut: none
-/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.symbolichotkeys.plist" -c 'Delete AppleSymbolicHotKeys:65' > /dev/null 2>&1
-/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.symbolichotkeys.plist" -c 'Add AppleSymbolicHotKeys:65:enabled bool false'
+## Spotlight menu keyboard shortcut: none
+#/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.symbolichotkeys.plist" -c 'Delete AppleSymbolicHotKeys:64' > /dev/null 2>&1
+#/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.symbolichotkeys.plist" -c 'Add AppleSymbolicHotKeys:64:enabled bool false'
+#
+## Spotlight window keyboard shortcut: none
+#/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.symbolichotkeys.plist" -c 'Delete AppleSymbolicHotKeys:65' > /dev/null 2>&1
+#/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.symbolichotkeys.plist" -c 'Add AppleSymbolicHotKeys:65:enabled bool false'
 
 # Remove Spotlight from menu bar
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
@@ -486,7 +486,7 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Squirrelson
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 # Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"
+#defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"
 
 # Make every attachment you send act like an attachment instead of a pretty unusable decoration
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true

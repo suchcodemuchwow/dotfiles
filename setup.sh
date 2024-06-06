@@ -91,7 +91,7 @@ echo
 # Set macOS defaults
 if [[ "$(uname -s)" == "Darwin" ]]; then
   title "Configuring macOS..."
-  ./setup/macos.sh
+#  ./setup/macos.sh
   echo "Defaults configured!" | indent
   echo
 fi

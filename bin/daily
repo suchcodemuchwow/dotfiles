@@ -13,7 +13,7 @@ pnpm ls -g --depth=0 --json | jq '.[].unsavedDependencies |= null' | jq 'del(.[]
 
 brew bundle dump --force --file=~/dotfiles/setup/Brewfile
 
-mackup backup
+#mackup backup
 
 # Run git commands
 git add .
