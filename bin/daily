@@ -18,7 +18,7 @@ echo "[DAILY_EVENT] Listing brew packages"
 brew bundle dump --force --file=~/dotfiles/setup/Brewfile
 
 echo "[DAILY_EVENT] Backing up with mackup"
-#mackup backup
+mackup backup --force && mackup uninstall --force
 
 # Run git commands
 echo "[DAILY_EVENT] Git add"
