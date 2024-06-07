@@ -65,9 +65,9 @@
       },
       "vercel": {
         "from": "vercel",
-        "version": "34.2.5",
-        "resolved": "https://registry.npmjs.org/vercel/-/vercel-34.2.5.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/vercel@34.2.5_encoding@0.1.13/node_modules/vercel"
+        "version": "34.2.6",
+        "resolved": "https://registry.npmjs.org/vercel/-/vercel-34.2.6.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/vercel@34.2.6_encoding@0.1.13/node_modules/vercel"
       }
     }
   }
