@@ -1,26 +1,34 @@
 #!/bin/zsh
 
+echo "[DAILY_EVENT] Sourcing /Users/dev/dotfiles/tilde/.zshrc"
 source /Users/dev/dotfiles/tilde/.zshrc
 
 # Change directory to ~/dotfiles
 cd ~/dotfiles
 
 # Runs update commands
+echo "[DAILY_EVENT] Running upup"
 upup daily
 
+echo "[DAILY_EVENT] Listing global pnpm packages"
 rm -rf ~/dotfiles/tilde/global_packages.json
 pnpm ls -g --depth=0 --json | jq '.[].unsavedDependencies |= null' | jq 'del(.[].unsavedDependencies)' > ~/dotfiles/tilde/global_packages.json
 
+echo "[DAILY_EVENT] Listing brew packages"
 brew bundle dump --force --file=~/dotfiles/setup/Brewfile
 
+echo "[DAILY_EVENT] Backing up with mackup"
 #mackup backup
 
 # Run git commands
+echo "[DAILY_EVENT] Git add"
 git add .
 
 # if anything in staging area
 if [ -n "$(git status --porcelain)" ]; then
+  echo "[DAILY_EVENT] ai commit files"
   aicommits --type conventional
+  echo "[DAILY_EVENT] push committed changes"
   git push
 fi
 
