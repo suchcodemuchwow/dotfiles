@@ -27,6 +27,12 @@
         "resolved": "https://registry.npmjs.org/depcheck/-/depcheck-1.4.7.tgz",
         "path": "/Users/dev/Library/pnpm/global/5/.pnpm/depcheck@1.4.7/node_modules/depcheck"
       },
+      "git-cz": {
+        "from": "git-cz",
+        "version": "4.9.0",
+        "resolved": "https://registry.npmjs.org/git-cz/-/git-cz-4.9.0.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/git-cz@4.9.0/node_modules/git-cz"
+      },
       "mintlify": {
         "from": "mintlify",
         "version": "4.0.166",
