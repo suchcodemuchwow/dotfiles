@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIR="$1"
+
+IFS=$'\n'
+cd "$DIR"
+LIST=""
+for i in $(find . -not -path "./node_modules/*"); do
+  LIST="`git blame --line-porcelain "$i" | grep 'author ' | sed "s,author,," | tr -d ' '`
+  $LIST"
+done
+echo "$LIST" | sort | uniq -ic | sort -nr
+unset IFS
