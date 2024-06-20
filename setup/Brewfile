@@ -62,6 +62,7 @@ cask "whatsapp"
 mas "Bitwarden", id: 1352778147
 mas "Klack", id: 6446206067
 mas "Speedtest", id: 1153157709
+mas "Xcode", id: 497799835
 vscode "adpyke.vscode-sql-formatter"
 vscode "bradlc.vscode-tailwindcss"
 vscode "ctf0.save-editors-layout"
@@ -77,6 +78,7 @@ vscode "naumovs.color-highlight"
 vscode "qwtel.sqlite-viewer"
 vscode "richie5um2.vscode-sort-json"
 vscode "shahilkumar.docxreader"
+vscode "streetsidesoftware.code-spell-checker"
 vscode "tal7aouy.icons"
 vscode "unifiedjs.vscode-mdx"
 vscode "unional.vscode-sort-package-json"
