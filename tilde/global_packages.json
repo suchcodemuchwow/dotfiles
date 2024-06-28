@@ -41,9 +41,9 @@
       },
       "mintlify": {
         "from": "mintlify",
-        "version": "4.0.177",
-        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.177.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.177_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react@18.3.1__react@18.3.1_typescript@4.9.5/node_modules/mintlify"
+        "version": "4.0.178",
+        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.178.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.178_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react@18.3.1__react@18.3.1_typescript@4.9.5/node_modules/mintlify"
       },
       "npm-check-updates": {
         "from": "npm-check-updates",
