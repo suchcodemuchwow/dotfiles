@@ -39,6 +39,12 @@
         "resolved": "https://registry.npmjs.org/jscpd/-/jscpd-4.0.4.tgz",
         "path": "/Users/dev/Library/pnpm/global/5/.pnpm/jscpd@4.0.4/node_modules/jscpd"
       },
+      "lighthouse": {
+        "from": "lighthouse",
+        "version": "12.1.0",
+        "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-12.1.0.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/lighthouse@12.1.0/node_modules/lighthouse"
+      },
       "mintlify": {
         "from": "mintlify",
         "version": "4.0.181",
