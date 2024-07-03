@@ -5,9 +5,9 @@
     "dependencies": {
       "@nestjs/cli": {
         "from": "@nestjs/cli",
-        "version": "10.4.0",
-        "resolved": "https://registry.npmjs.org/@nestjs/cli/-/cli-10.4.0.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/@nestjs+cli@10.4.0/node_modules/@nestjs/cli"
+        "version": "10.4.1",
+        "resolved": "https://registry.npmjs.org/@nestjs/cli/-/cli-10.4.1.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/@nestjs+cli@10.4.1/node_modules/@nestjs/cli"
       },
       "@openapitools/openapi-generator-cli": {
         "from": "@openapitools/openapi-generator-cli",
@@ -35,9 +35,9 @@
       },
       "jscpd": {
         "from": "jscpd",
-        "version": "4.0.4",
-        "resolved": "https://registry.npmjs.org/jscpd/-/jscpd-4.0.4.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/jscpd@4.0.4/node_modules/jscpd"
+        "version": "4.0.5",
+        "resolved": "https://registry.npmjs.org/jscpd/-/jscpd-4.0.5.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/jscpd@4.0.5/node_modules/jscpd"
       },
       "lighthouse": {
         "from": "lighthouse",
@@ -47,9 +47,9 @@
       },
       "mintlify": {
         "from": "mintlify",
-        "version": "4.0.181",
-        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.181.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.181_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react@18.3.1__react@18.3.1_typescript@4.9.5/node_modules/mintlify"
+        "version": "4.0.182",
+        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.182.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.182_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react@18.3.1__react@18.3.1_typescript@4.9.5/node_modules/mintlify"
       },
       "npm-check-updates": {
         "from": "npm-check-updates",
@@ -65,9 +65,9 @@
       },
       "tsx": {
         "from": "tsx",
-        "version": "4.16.0",
-        "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.16.0.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/tsx@4.16.0/node_modules/tsx"
+        "version": "4.16.2",
+        "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.16.2.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/tsx@4.16.2/node_modules/tsx"
       },
       "turbo": {
         "from": "turbo",
