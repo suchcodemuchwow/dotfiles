@@ -43,13 +43,13 @@
         "from": "lighthouse",
         "version": "12.1.0",
         "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-12.1.0.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/lighthouse@12.1.0/node_modules/lighthouse"
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/lighthouse@12.1.0_bufferutil@4.0.8_utf-8-validate@6.0.4/node_modules/lighthouse"
       },
       "mintlify": {
         "from": "mintlify",
         "version": "4.0.184",
         "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.184.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.184_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react@18.3.1__react@18.3.1_typescript@4.9.5/node_modules/mintlify"
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.184_bufferutil@4.0.8_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react_kg565scplxaitqq4ewswzqip4a/node_modules/mintlify"
       },
       "npm-check-updates": {
         "from": "npm-check-updates",
@@ -61,7 +61,7 @@
         "from": "spotify-dl",
         "version": "1.1.2",
         "resolved": "https://registry.npmjs.org/spotify-dl/-/spotify-dl-1.1.2.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/spotify-dl@1.1.2_encoding@0.1.13/node_modules/spotify-dl"
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/spotify-dl@1.1.2_bufferutil@4.0.8_encoding@0.1.13_utf-8-validate@6.0.4/node_modules/spotify-dl"
       },
       "tsx": {
         "from": "tsx",
@@ -80,6 +80,12 @@
         "version": "34.3.1",
         "resolved": "https://registry.npmjs.org/vercel/-/vercel-34.3.1.tgz",
         "path": "/Users/dev/Library/pnpm/global/5/.pnpm/vercel@34.3.1_encoding@0.1.13/node_modules/vercel"
+      },
+      "webtorrent-cli": {
+        "from": "webtorrent-cli",
+        "version": "5.1.2",
+        "resolved": "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-5.1.2.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/webtorrent-cli@5.1.2/node_modules/webtorrent-cli"
       }
     }
   }

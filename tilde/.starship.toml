@@ -95,5 +95,3 @@ show_always = false
 
 [nodejs]
 format = "via [🤖 $version](bold green) "
-
-right_format = "$ruby$nodejs$cmd_duration"
