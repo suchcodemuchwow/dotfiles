@@ -33,6 +33,12 @@
         "resolved": "https://registry.npmjs.org/git-cz/-/git-cz-4.9.0.tgz",
         "path": "/Users/dev/Library/pnpm/global/5/.pnpm/git-cz@4.9.0/node_modules/git-cz"
       },
+      "http-server": {
+        "from": "http-server",
+        "version": "14.1.1",
+        "resolved": "https://registry.npmjs.org/http-server/-/http-server-14.1.1.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/http-server@14.1.1/node_modules/http-server"
+      },
       "jscpd": {
         "from": "jscpd",
         "version": "4.0.5",

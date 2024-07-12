@@ -6,6 +6,7 @@ tap "homebrew/services"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "lihaoyun6/tap"
+tap "ngrok/ngrok"
 tap "supabase/tap"
 tap "trentm/tap"
 brew "autojump"
@@ -60,6 +61,7 @@ cask "maccy"
 cask "marta"
 cask "monitorcontrol"
 cask "mullvadvpn"
+cask "ngrok"
 cask "orbstack"
 cask "postman"
 cask "quickrecorder"
@@ -71,6 +73,7 @@ cask "webstorm"
 cask "whatsapp"
 mas "Bitwarden", id: 1352778147
 mas "Klack", id: 6446206067
+mas "Numbers", id: 409203825
 mas "Speedtest", id: 1153157709
 mas "Xcode", id: 497799835
 vscode "adpyke.vscode-sql-formatter"
