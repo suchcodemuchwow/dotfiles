@@ -83,9 +83,9 @@
       },
       "vercel": {
         "from": "vercel",
-        "version": "34.3.1",
-        "resolved": "https://registry.npmjs.org/vercel/-/vercel-34.3.1.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/vercel@34.3.1_encoding@0.1.13/node_modules/vercel"
+        "version": "34.4.0",
+        "resolved": "https://registry.npmjs.org/vercel/-/vercel-34.4.0.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/vercel@34.4.0_encoding@0.1.13/node_modules/vercel"
       },
       "webtorrent-cli": {
         "from": "webtorrent-cli",
