@@ -77,6 +77,7 @@ cask "vlc"
 cask "webstorm"
 cask "whatsapp"
 mas "Bitwarden", id: 1352778147
+mas "Email", id: 1489591003
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
 mas "Speedtest", id: 1153157709
