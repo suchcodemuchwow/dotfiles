@@ -14,12 +14,12 @@ alias cd..='cd ..'
 alias -- -="cd -" # previous working directory
 
 # Hot-access directories
-alias dotfiles="cd $DOTFILES"
-alias library="cd $HOME/Library"
-alias projects="cd $WORKSPACE"
+alias dotfiles='cd $DOTFILES'
+alias library='d $HOME/Library'
+alias projects='cd $WORKSPACE'
 
 # zshrc config
-alias zshrc="$EDITOR ~/.zshrc"
+alias zshrc='$EDITOR ~/.zshrc'
 alias reload="source ~/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
 
 # Sane defaults for built-ins (verbose and interactive)
@@ -159,3 +159,5 @@ alias restartmac="sudo shutdown -r now"
 # Show/hide all desktop icons (useful when presenting)
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+
+alias go="goland"
