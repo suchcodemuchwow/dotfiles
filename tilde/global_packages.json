@@ -27,6 +27,12 @@
         "resolved": "https://registry.npmjs.org/depcheck/-/depcheck-1.4.7.tgz",
         "path": "/Users/dev/Library/pnpm/global/5/.pnpm/depcheck@1.4.7/node_modules/depcheck"
       },
+      "dpdm": {
+        "from": "dpdm",
+        "version": "3.14.0",
+        "resolved": "https://registry.npmjs.org/dpdm/-/dpdm-3.14.0.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/dpdm@3.14.0/node_modules/dpdm"
+      },
       "git-cz": {
         "from": "git-cz",
         "version": "4.9.0",
