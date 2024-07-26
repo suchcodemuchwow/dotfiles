@@ -79,6 +79,7 @@ cask "rectangle"
 cask "syntax-highlight"
 cask "visual-studio-code"
 cask "vlc"
+cask "warp"
 cask "whatsapp"
 mas "Bitwarden", id: 1352778147
 mas "Klack", id: 6446206067
