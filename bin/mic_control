@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Function to check if the microphone is in use
+is_mic_in_use() {
+ # Check for microphone usage by inspecting coreaudiod activity
+   local mic_usage=$(sudo powermetrics --samplers tasks | grep -i "coreaudiod")
+   if [[ -n "$mic_usage" ]]; then
+       return 0  # Microphone is in use
+   else
+       return 1  # Microphone is not in use
+   fi
+}
+
+# Function to disable time announcements
+disable_time_announcements() {
+    defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool false
+    killall SystemUIServer
+}
+
+# Function to enable time announcements
+enable_time_announcements() {
+    defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool true
+    killall SystemUIServer
+}
+
+# Check if the microphone is in use
+if is_mic_in_use; then
+    disable_time_announcements
+    echo "Microphone is in use. Time announcements disabled."
+else
+    enable_time_announcements
+    echo "Microphone is not in use. Time announcements enabled."
+fi

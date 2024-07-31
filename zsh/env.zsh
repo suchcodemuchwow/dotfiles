@@ -13,7 +13,7 @@ export WORKSPACE="$HOME/dev"
 
 # Preferred editor
 if command -v cot &> /dev/null; then
-  export EDITOR='cot'
+  export EDITOR='nano'
 else
   export EDITOR='nano'
 fi
