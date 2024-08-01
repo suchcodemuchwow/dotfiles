@@ -104,7 +104,7 @@ alias gs="git status"
 alias gss="git status -sb"
 alias gd="git diff"
 alias gp="pull --recurse-submodules"
-alias gl="git log --graph --pretty=format:'%C(magenta)%h%Creset%C(auto)%d%Creset %s %C(blue bold)— %cr ~ %an%Creset'"
+alias gl="git log --pretty=format:'%C(magenta)%h%Creset%C(auto)%d%Creset %s %C(blue bold)— %cr ~ %an%Creset'"
 alias gpu="push"
 alias gpuf="push --force-with-lease"
 
