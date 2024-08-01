@@ -59,9 +59,9 @@
       },
       "mintlify": {
         "from": "mintlify",
-        "version": "4.0.192",
-        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.192.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.192_bufferutil@4.0.8_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react_ahwxgfs6ep3wj7pegtlslrkhzq/node_modules/mintlify"
+        "version": "4.0.193",
+        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.193.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.193_bufferutil@4.0.8_encoding@0.1.13_openapi-types@12.1.3_react-dom@18.3.1_react_cq4zk3t34pep6ehn5shv2htaa4/node_modules/mintlify"
       },
       "npm-check-updates": {
         "from": "npm-check-updates",
@@ -77,9 +77,9 @@
       },
       "tsx": {
         "from": "tsx",
-        "version": "4.16.3",
-        "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.16.3.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/tsx@4.16.3/node_modules/tsx"
+        "version": "4.16.5",
+        "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.16.5.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/tsx@4.16.5/node_modules/tsx"
       },
       "turbo": {
         "from": "turbo",
