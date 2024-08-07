@@ -53,9 +53,9 @@
       },
       "lighthouse": {
         "from": "lighthouse",
-        "version": "12.1.0",
-        "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-12.1.0.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/lighthouse@12.1.0_bufferutil@4.0.8_utf-8-validate@6.0.4/node_modules/lighthouse"
+        "version": "12.2.0",
+        "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-12.2.0.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/lighthouse@12.2.0_bufferutil@4.0.8_utf-8-validate@6.0.4/node_modules/lighthouse"
       },
       "mintlify": {
         "from": "mintlify",
