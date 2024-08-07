@@ -49,6 +49,7 @@ alias where="which"
 alias pn="pnpm"
 alias pnpx="pnpm dlx"
 alias gcz="pnpx git-cz"
+alias bins="ll /Users/dev/dotfiles/bin"
 
 # Apps
 alias grip="open -a 'DataGrip.app' ."
