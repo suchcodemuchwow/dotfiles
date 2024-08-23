@@ -50,6 +50,7 @@ alias pn="pnpm"
 alias pnpx="pnpm dlx"
 alias gcz="pnpx git-cz"
 alias bins="ll /Users/dev/dotfiles/bin"
+alias fuckinmackup="mackup backup --force && mackup uninstall"
 
 # Apps
 alias grip="open -a 'DataGrip.app' ."
