@@ -25,6 +25,7 @@ brew "fnm"
 brew "gh"
 brew "git"
 brew "git-delta"
+brew "go"
 brew "graphviz"
 brew "grep"
 brew "htop"
@@ -91,7 +92,6 @@ mas "Bitwarden", id: 1352778147
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
 mas "Speedtest", id: 1153157709
-mas "Xcode", id: 497799835
 vscode "adpyke.vscode-sql-formatter"
 vscode "bradlc.vscode-tailwindcss"
 vscode "ctf0.duplicated-code-new"
