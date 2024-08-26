@@ -211,6 +211,13 @@
   publish      = "!git push --set-upstream origin $(git branch-name)"
   sha          = log -n 1 --pretty=format:'%H'
 
+  #
+  # Ignore/unignore files
+  #
+  ignore       = update-index --skip-worktree
+  unignore     = update-index --no-skip-worktree
+  ignored      = !git ls-files -v | grep "^S"
+
 # git-delta
 
 [interactive]
