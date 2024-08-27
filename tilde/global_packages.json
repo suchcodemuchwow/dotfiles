@@ -77,9 +77,9 @@
       },
       "tsx": {
         "from": "tsx",
-        "version": "4.18.0",
-        "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.18.0.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/tsx@4.18.0/node_modules/tsx"
+        "version": "4.19.0",
+        "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.19.0.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/tsx@4.19.0/node_modules/tsx"
       },
       "turbo": {
         "from": "turbo",
