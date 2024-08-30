@@ -5,9 +5,9 @@
     "dependencies": {
       "@nestjs/cli": {
         "from": "@nestjs/cli",
-        "version": "10.4.4",
-        "resolved": "https://registry.npmjs.org/@nestjs/cli/-/cli-10.4.4.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/@nestjs+cli@10.4.4/node_modules/@nestjs/cli"
+        "version": "10.4.5",
+        "resolved": "https://registry.npmjs.org/@nestjs/cli/-/cli-10.4.5.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/@nestjs+cli@10.4.5/node_modules/@nestjs/cli"
       },
       "@openapitools/openapi-generator-cli": {
         "from": "@openapitools/openapi-generator-cli",
