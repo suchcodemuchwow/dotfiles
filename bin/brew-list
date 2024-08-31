@@ -1,0 +1,8 @@
+N=${1:-10}
+brew list --installed-on-request --formula -1 | while read line; do
+  size=$(du -sh $(brew --cellar $line) | awk '{print $1}');
+  echo "$size $line";
+done | sort -hr | head -n $N | while read size line; do
+  description=$(brew info --formula $line | awk 'NR==2 {print $0}');
+  echo "$size | $line | $description";
+done
