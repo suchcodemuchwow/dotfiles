@@ -1,3 +1,10 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+command_timeout = 3600000
 # ~/.config/starship.toml
 
 [battery]
@@ -24,8 +31,12 @@ format = 'underwent [$duration](bold yellow)'
 truncation_length = 5
 format = "[$path]($style)[$lock_symbol]($lock_style)"
 
+[nodejs]
+format = " via [$symbol$version](bold green)"
+
+# Git-related sections
 [git_branch]
-format = " [$symbol$branch]($style) "
+format = " [$symbol$branch]($style)"
 symbol = "🍣 "
 style = "bold yellow"
 
@@ -37,18 +48,19 @@ style = "bold white"
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
-conflicted = "⚔️conflict "
-ahead = "🏎️ ahead ×${count} "
-behind = "🐢 behind ×${count} "
-diverged = "🏎️ ahead ×${ahead_count} 🐢 behind ×${behind_count} "
-untracked = "🛤️ untracked ×${count} "
-stashed = "📦 stashed "
-modified = "📝 modified ×${count} "
-staged = "🗃️ staged ×${count} "
-renamed = "📛 renamed ×${count} "
-deleted = "🗑️ deleted ×${count} "
-style = "bright-white"
+conflicted = " ⚔️conflict"
+ahead = " 🏎️ ahead ×${count}"
+behind = " 🐢 behind ×${count}"
+diverged = " 🏎️ ahead ×${ahead_count} 🐢 behind ×${behind_count}"
+untracked = " 🛤️ untracked ×${count}"
+stashed = " 📦 stashed"
+modified = " 📝 modified ×${count}"
+staged = " 🗃️ staged ×${count}"
+renamed = " 📛 renamed ×${count}"
+deleted = " 🗑️ deleted ×${count}"
+style = "bold white"
 format = "$all_status$ahead_behind"
+# End of git-related sections
 
 [hostname]
 ssh_only = false
@@ -93,5 +105,3 @@ style = "bold #239dae"
 style_user = "bold dimmed blue"
 show_always = false
 
-[nodejs]
-format = "via [🤖 $version](bold green) "
