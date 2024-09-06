@@ -104,6 +104,12 @@
         "version": "5.1.2",
         "resolved": "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-5.1.2.tgz",
         "path": "/Users/dev/Library/pnpm/global/5/.pnpm/webtorrent-cli@5.1.2/node_modules/webtorrent-cli"
+      },
+      "wscat": {
+        "from": "wscat",
+        "version": "5.2.1",
+        "resolved": "https://registry.npmjs.org/wscat/-/wscat-5.2.1.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/wscat@5.2.1_bufferutil@4.0.8_utf-8-validate@6.0.4/node_modules/wscat"
       }
     }
   }
