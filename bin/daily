@@ -29,6 +29,7 @@ if [ -n "$(git status --porcelain)" ]; then
   echo "[DAILY_EVENT] ai commit files"
   aicommits --type conventional
   echo "[DAILY_EVENT] push committed changes"
+  gl -1
   git push
 fi
 
