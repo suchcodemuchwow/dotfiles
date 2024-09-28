@@ -95,6 +95,7 @@ cask "whatsapp"
 mas "AdBlock", id: 1402042596
 mas "Bitwarden", id: 1352778147
 mas "CleanMyMac X", id: 1339170533
+mas "Hush", id: 1544743900
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
 mas "Speedtest", id: 1153157709
