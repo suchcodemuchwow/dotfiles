@@ -11,9 +11,9 @@
       },
       "@openapitools/openapi-generator-cli": {
         "from": "@openapitools/openapi-generator-cli",
-        "version": "2.13.10",
-        "resolved": "https://registry.npmjs.org/@openapitools/openapi-generator-cli/-/openapi-generator-cli-2.13.10.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/@openapitools+openapi-generator-cli@2.13.10_encoding@0.1.13/node_modules/@openapitools/openapi-generator-cli"
+        "version": "2.13.11",
+        "resolved": "https://registry.npmjs.org/@openapitools/openapi-generator-cli/-/openapi-generator-cli-2.13.11.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/@openapitools+openapi-generator-cli@2.13.11_encoding@0.1.13/node_modules/@openapitools/openapi-generator-cli"
       },
       "aicommits": {
         "from": "aicommits",
