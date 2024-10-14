@@ -53,6 +53,7 @@ esac
 
 chpwd_functions=(change_nvm_version)
 function change_node_version {
+  echo "change_node_version"
 	nvmrc="./.nvmrc"
 	if [ -f "$nvmrc" ]; then
 		version="$(cat "$nvmrc")"
