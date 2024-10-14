@@ -50,3 +50,12 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+chpwd_functions=(change_nvm_version)
+function change_node_version {
+	nvmrc="./.nvmrc"
+	if [ -f "$nvmrc" ]; then
+		version="$(cat "$nvmrc")"
+		fnm use $version
+	fi
+}
