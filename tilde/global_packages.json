@@ -71,9 +71,9 @@
       },
       "pino-pretty": {
         "from": "pino-pretty",
-        "version": "11.2.2",
-        "resolved": "https://registry.npmjs.org/pino-pretty/-/pino-pretty-11.2.2.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/pino-pretty@11.2.2/node_modules/pino-pretty"
+        "version": "11.3.0",
+        "resolved": "https://registry.npmjs.org/pino-pretty/-/pino-pretty-11.3.0.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/pino-pretty@11.3.0/node_modules/pino-pretty"
       },
       "spotify-dl": {
         "from": "spotify-dl",
