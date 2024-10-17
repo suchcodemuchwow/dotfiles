@@ -75,6 +75,12 @@
         "resolved": "https://registry.npmjs.org/pino-pretty/-/pino-pretty-11.3.0.tgz",
         "path": "/Users/dev/Library/pnpm/global/5/.pnpm/pino-pretty@11.3.0/node_modules/pino-pretty"
       },
+      "pm2": {
+        "from": "pm2",
+        "version": "5.4.2",
+        "resolved": "https://registry.npmjs.org/pm2/-/pm2-5.4.2.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/pm2@5.4.2_bufferutil@4.0.8_utf-8-validate@6.0.4/node_modules/pm2"
+      },
       "spotify-dl": {
         "from": "spotify-dl",
         "version": "1.1.2",
