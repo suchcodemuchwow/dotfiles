@@ -163,3 +163,5 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 
 alias go="goland"
+
+alias actor="act --container-architecture linux/amd64"
