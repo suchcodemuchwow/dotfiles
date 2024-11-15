@@ -53,15 +53,15 @@
       },
       "lighthouse": {
         "from": "lighthouse",
-        "version": "12.2.1",
-        "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-12.2.1.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/lighthouse@12.2.1_bufferutil@4.0.8_utf-8-validate@6.0.5/node_modules/lighthouse"
+        "version": "12.2.2",
+        "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-12.2.2.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/lighthouse@12.2.2_bufferutil@4.0.8_utf-8-validate@6.0.5/node_modules/lighthouse"
       },
       "mintlify": {
         "from": "mintlify",
-        "version": "4.0.273",
-        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.273.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.273_bufferutil@4.0.8_encoding@0.1.13_react-dom@18.3.1_react@18.3.1__react@18.3.1_pctjqrjabkqnwkei5cigc3kjiy/node_modules/mintlify"
+        "version": "4.0.274",
+        "resolved": "https://registry.npmjs.org/mintlify/-/mintlify-4.0.274.tgz",
+        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/mintlify@4.0.274_bufferutil@4.0.8_encoding@0.1.13_react-dom@18.3.1_react@18.3.1__react@18.3.1_gghvgfroufwsnolfhkxbevnzye/node_modules/mintlify"
       },
       "npm-check-updates": {
         "from": "npm-check-updates",
