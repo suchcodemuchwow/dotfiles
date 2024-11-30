@@ -95,11 +95,3 @@ cask "visual-studio-code"
 cask "vlc"
 cask "warp"
 cask "whatsapp"
-mas "Accelerate", id: 1459809092
-mas "AdBlock", id: 1402042596
-mas "Bitwarden", id: 1352778147
-mas "CleanMyMac", id: 1339170533
-mas "Klack", id: 6446206067
-mas "Numbers", id: 409203825
-mas "Playgrounds", id: 1496833156
-mas "Speedtest", id: 1153157709
