@@ -1,0 +1,101 @@
+#!/bin/bash
+
+# Navigate to your Git repository
+cd /Users/dev/Development/zymego/portals || { echo "❌ Failed to navigate to repo"; exit 1; }
+
+# Get the current branch name
+current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+if [ -z "$current_branch" ]; then
+  osascript -e 'display notification "❌ Error: Failed to get current branch!" with title "Pusher" sound name "Submarine"'
+  echo "❌ Failed to get the current branch. Are you in a Git repository?"
+  exit 1
+fi
+
+# Fetch the remote branch first
+if ! git fetch origin "$current_branch" 2>/dev/null; then
+  osascript -e 'display notification "❌ Error: Failed to fetch remote branch!" with title "Pusher" sound name "Submarine"'
+  echo "❌ Failed to fetch from remote. Check your internet connection or remote repository."
+  exit 1
+fi
+
+# Rebase on top of remote changes
+if ! git rebase "origin/$current_branch" 2>/dev/null; then
+  osascript -e 'display notification "❌ Error: Failed to rebase on remote changes!" with title "Pusher" sound name "Submarine"'
+  echo "❌ Failed to rebase. Please resolve conflicts manually."
+  git rebase --abort 2>/dev/null  # Clean up failed rebase
+  exit 1
+fi
+
+# Check current hour
+current_hour=$(date +%H)
+if [ "$current_hour" -lt 9 ] || [ "$current_hour" -ge 17 ]; then
+  osascript -e 'display notification "Not within working hours (9:00–17:00)" with title "Pusher" sound name "Submarine"'
+  exit 0
+fi
+
+# Check for unpushed commits (branch-specific)
+local_log=$(git log --pretty=format:"%H" "$current_branch" 2>/dev/null)
+remote_log=$(git log --pretty=format:"%H" "origin/$current_branch" 2>/dev/null)
+
+# Debugging: Ensure logs are retrieved properly
+if [ -z "$local_log" ]; then
+  osascript -e 'display notification "❌ Error: Failed to retrieve local log!" with title "Pusher" sound name "Submarine"'
+  echo "❌ Local log retrieval failed. Ensure you have local commits on branch $current_branch."
+  exit 1
+fi
+
+if [ -z "$remote_log" ]; then
+  osascript -e 'display notification "❌ Error: Failed to retrieve remote log!" with title "Pusher" sound name "Submarine"'
+  echo "❌ Remote log retrieval failed. Ensure the remote branch $current_branch exists or network is connected."
+  exit 1
+fi
+
+unpushed_commits=()
+while read -r commit; do
+  if [[ ! $remote_log =~ $commit ]]; then
+    unpushed_commits+=("$commit")
+  fi
+done <<< "$local_log"
+
+# Debugging: Echo the list of unpushed commits
+echo "Unpushed commits on $current_branch: ${unpushed_commits[@]}"
+
+# Handle case where there are no unpushed commits
+if [ ${#unpushed_commits[@]} -eq 0 ]; then
+  osascript -e "display notification \"No unpushed commits on branch $current_branch!\" with title \"Pusher\" sound name \"Submarine\""
+  exit 0
+fi
+
+# Access the last (earliest) commit in the array using correct syntax
+earliest_commit="${unpushed_commits[@]: -1}"  # Correct way to access the last element
+
+if [ -z "$earliest_commit" ]; then
+  osascript -e 'display notification "❌ Error: No valid commit found in unpushed commits!" with title "Pusher" sound name "Submarine"'
+  echo "❌ No valid commit found in unpushed commits."
+  exit 1
+fi
+
+# Update the specific commit timestamp to current time
+git filter-branch --env-filter \
+    'if [ $GIT_COMMIT = "'$earliest_commit'" ]; then
+        export GIT_AUTHOR_DATE="$(date)"
+        export GIT_COMMITTER_DATE="$(date)"
+     fi' -f HEAD~${#unpushed_commits[@]}..HEAD
+
+commit_message=$(git show -s --format=%s "$earliest_commit" 2>/dev/null)
+if [ -z "$commit_message" ]; then
+  osascript -e 'display notification "❌ Error: Unable to retrieve commit message!" with title "Pusher" sound name "Submarine"'
+  echo "❌ Failed to retrieve commit message for commit: $earliest_commit"
+  exit 1
+fi
+
+# Push only the earliest commit to remote
+if git push origin "$earliest_commit:$current_branch"; then
+  osascript -e "display notification \"Success: $commit_message\" with title \"Pusher\" sound name \"Submarine\""
+else
+  osascript -e "display notification \"Error: $commit_message\" with title \"Pusher\" sound name \"Submarine\""
+  echo "❌ Failed to push commit to remote"
+  exit 1
+fi
+
+exit 0
