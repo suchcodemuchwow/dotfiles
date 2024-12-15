@@ -162,6 +162,4 @@ alias restartmac="sudo shutdown -r now"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 
-alias go="goland"
-
 alias actor="act --container-architecture linux/amd64"
