@@ -52,7 +52,7 @@ brew "tag"
 brew "terminal-notifier"
 brew "tldr"
 brew "tmux"
-brew "trash-cli"
+brew "trash-cli", link: true
 brew "tree"
 brew "typescript"
 brew "watchman"
