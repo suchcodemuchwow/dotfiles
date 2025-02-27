@@ -1,2 +1,0 @@
-0 */4 * * * /Users/dev/dotfiles/bin/daily >> /Users/dev/Desktop/daily.log 2>&1
-* * * * *  /Users/dev/dotfiles/bin/mic_control >> /Users/dev/Desktop/mic.log 2>&1

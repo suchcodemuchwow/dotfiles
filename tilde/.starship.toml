@@ -29,7 +29,7 @@ format = 'underwent [$duration](bold yellow)'
 
 [directory]
 truncation_length = 5
-format = "[$path]($style)[$lock_symbol]($lock_style)"
+format = "[$path]($style) [$lock_symbol]($lock_style)"
 
 [nodejs]
 format = " via [$symbol$version](bold green)"
@@ -59,7 +59,7 @@ staged = " 🗃️ staged ×${count}"
 renamed = " 📛 renamed ×${count}"
 deleted = " 🗑️ deleted ×${count}"
 style = "bold white"
-format = "$all_status$ahead_behind"
+format = "$all_status$ahead_behind "
 # End of git-related sections
 
 [hostname]
