@@ -24,6 +24,7 @@ mackup backup --force && mackup uninstall --force
 echo "[DAILY_EVENT] Git add"
 git add .
 
+echo "[DAILY_EVENT] if anything in staging area"
 # if anything in staging area
 if [ -n "$(git status --porcelain)" ]; then
   echo "[DAILY_EVENT] ai commit files"
