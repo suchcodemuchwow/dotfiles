@@ -40,10 +40,13 @@ upup daily
 # Package management
 print_event "=== Managing Package Lists ==="
 
-print_event "Updating global pnpm packages list..."
+print_event "Deleting global pnpm packages list..."
 rm ~/dotfiles/tilde/global_packages.json
 
-print_event "Generating new pnpm packages JSON..."
+print_event "Checking and updating global pnpm packages..."
+pnpm update -g  # This will update all global packages to their latest versions
+
+print_event "Generating global pnpm packages JSON..."
 pnpm ls -g --depth=0 --json | \
     jq '.[].unsavedDependencies |= null' | \
     jq 'del(.[].unsavedDependencies)' > ~/dotfiles/tilde/global_packages.json
