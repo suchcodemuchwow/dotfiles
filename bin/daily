@@ -41,7 +41,7 @@ upup daily
 print_event "=== Managing Package Lists ==="
 
 print_event "Updating global pnpm packages list..."
-rm -f ~/dotfiles/tilde/global_packages.json || true
+rm ~/dotfiles/tilde/global_packages.json
 
 print_event "Generating new pnpm packages JSON..."
 pnpm ls -g --depth=0 --json | \

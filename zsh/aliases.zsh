@@ -55,15 +55,6 @@ alias fuckinmackup="mackup backup --force && mackup uninstall"
 # Apps
 alias grip="open -a 'DataGrip.app' ."
 
-# Lazydocker
-alias ld="lazydocker"
-
-# Lazygit
-alias lg="lazygit --use-config-dir $DOTFILES/lazygit"
-
-# File Manager
-alias nn="open -a 'Marta' ."
-
 #
 # Built-ins upgrades
 #
@@ -82,9 +73,6 @@ command_exists eza && alias llt="eza -a --icons --tree --git-ignore"
 
 # Safer reversible file removal: https://github.com/sindresorhus/trash-cli
 command_exists trash && alias rm="trash"
-
-# Htop: https://htop.dev/
-command_exists htop && alias top="htop"
 
 # Tldr: https://tldr.sh/
 command_exists tldr && alias man="tldr"
