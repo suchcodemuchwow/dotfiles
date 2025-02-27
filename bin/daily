@@ -49,25 +49,37 @@ handle_error() {
     return 1
 }
 
+# Function to safely remove a file if it exists
+safe_remove() {
+    local file=$1
+    if [[ -f "$file" ]]; then
+        /bin/rm "$file" 2>/dev/null
+    fi
+}
+
 # Function to manage package lists for each package manager
 manage_packages() {
     local manager=$1
     local list_file="$HOME/dotfiles/tilde/${manager}_global_packages.json"
 
-    # Delete existing list
+    # Delete existing list (only if it exists)
     print_event "Deleting global $manager packages list..."
-    rm "$list_file" || handle_error "$manager" "list deletion" "Failed to delete existing list"
+    safe_remove "$list_file"
 
     # Update global packages
     print_event "Checking and updating global $manager packages..."
     case $manager in
         "pnpm")
-            pnpm update -g || handle_error "$manager" "update" "Failed to update packages"
-            print_event "Generating global $manager packages JSON..."
-            pnpm ls -g --depth=0 --json | \
-                jq '.[].unsavedDependencies |= null' | \
-                jq 'del(.[].unsavedDependencies)' > "$list_file" || \
-                handle_error "$manager" "list generation" "Failed to generate package list"
+            # Create empty JSON if no packages are installed
+            if ! pnpm update -g 2>/dev/null; then
+                echo '[]' > "$list_file"
+            else
+                print_event "Generating global $manager packages JSON..."
+                pnpm ls -g --depth=0 --json 2>/dev/null | \
+                    jq '.[].unsavedDependencies |= null' | \
+                    jq 'del(.[].unsavedDependencies)' > "$list_file" || \
+                    echo '[]' > "$list_file"
+            fi
             ;;
         "npm")
             npm update -g || handle_error "$manager" "update" "Failed to update packages"
@@ -83,6 +95,7 @@ manage_packages() {
                     handle_error "$manager" "list generation" "Failed to generate package list"
             else
                 print_event "${CYAN}Bun is not installed - skipping${RESET}"
+                echo '{"packages":[]}' > "$list_file"
             fi
             ;;
         "deno")
@@ -93,7 +106,8 @@ manage_packages() {
                 {
                     echo '{'
                     echo '  "packages": ['
-                    deno info --json | jq -r '.registries | to_entries[] | .value[]' 2>/dev/null | \
+                    deno info --json 2>/dev/null | \
+                        jq -r '.registries | to_entries[] | .value[]' 2>/dev/null | \
                         jq -R 'split("@") | {name: .[0], version: .[1]}' | \
                         jq -s '.' || echo '[]'
                     echo '  ]'
@@ -101,6 +115,7 @@ manage_packages() {
                 } > "$list_file" || handle_error "$manager" "list generation" "Failed to generate package list"
             else
                 print_event "${CYAN}Deno is not installed - skipping${RESET}"
+                echo '{"packages":[]}' > "$list_file"
             fi
             ;;
     esac
