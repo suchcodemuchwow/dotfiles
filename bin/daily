@@ -1,36 +1,83 @@
 #!/bin/zsh
 
-echo "[DAILY_EVENT] Sourcing /Users/dev/dotfiles/tilde/.zshrc"
+# Script: daily
+# Description: Performs daily system maintenance and backup tasks
+# Including: package listing, brew bundle dump, mackup backup, and git operations
+
+# Catppuccin Macchiato colors
+BLUE="$(tput setaf 4)"      # blue (#8aadf4)
+RED="$(tput setaf 1)"       # red (#f38ba8)
+MAGENTA="$(tput setaf 5)"   # magenta (#f5bde6)
+CYAN="$(tput setaf 6)"      # cyan (#8bd5ca)
+WHITE="$(tput setaf 7)"     # white (#b8c0e0)
+BLACK="$(tput setaf 0)"     # black (#414559)
+BOLD="$(tput bold)"
+BG_RED="$(tput setab 1)"    # background red (#f38ba8)
+BG_BLUE="$(tput setab 4)"   # background blue (#8aadf4)
+BG_WHITE="$(tput setab 7)"  # background white (#b8c0e0)
+RESET="$(tput sgr0)"
+
+# Function to print formatted event messages
+print_event() {
+    echo -e "${BG_RED}${BLACK}${BOLD}[DAILY_EVENT]${RESET}${BG_WHITE}${BLACK}${BOLD} $1${RESET}"
+}
+
+print_event "=== Starting Daily Maintenance Script ==="
+date
+
+print_event "Sourcing zsh configuration..."
 source /Users/dev/dotfiles/tilde/.zshrc
 
-# Change directory to ~/dotfiles
+# Navigate to dotfiles directory
+print_event "Changing directory to dotfiles..."
 cd ~/dotfiles
 
-# Runs update commands
-echo "[DAILY_EVENT] Running upup"
+# System updates
+print_event "=== Running System Updates ==="
+print_event "Executing upup command for daily updates..."
 upup daily
 
-echo "[DAILY_EVENT] Listing global pnpm packages"
-rm -rf ~/dotfiles/tilde/global_packages.json
-pnpm ls -g --depth=0 --json | jq '.[].unsavedDependencies |= null' | jq 'del(.[].unsavedDependencies)' > ~/dotfiles/tilde/global_packages.json
+# Package management
+print_event "=== Managing Package Lists ==="
 
-echo "[DAILY_EVENT] Listing brew packages"
+print_event "Updating global pnpm packages list..."
+rm -rf ~/dotfiles/tilde/global_packages.json
+
+print_event "Generating new pnpm packages JSON..."
+pnpm ls -g --depth=0 --json | \
+    jq '.[].unsavedDependencies |= null' | \
+    jq 'del(.[].unsavedDependencies)' > ~/dotfiles/tilde/global_packages.json
+
+print_event "Updating Homebrew bundle..."
 brew bundle dump --force --file=~/dotfiles/setup/Brewfile
 
-echo "[DAILY_EVENT] Backing up with mackup"
+# Backup operations
+print_event "=== Running Backup Operations ==="
+print_event "Executing mackup backup..."
 mackup backup --force && mackup uninstall --force
 
-# Run git commands
-echo "[DAILY_EVENT] Git add"
+# Git operations
+print_event "=== Performing Git Operations ==="
+print_event "Adding all changes to git..."
 git add .
 
-echo "[DAILY_EVENT] if anything in staging area"
-# if anything in staging area
+print_event "Checking for changes in git staging area..."
 if [ -n "$(git status --porcelain)" ]; then
-  echo "[DAILY_EVENT] ai commit files"
-  aicommits --type conventional
-  echo "[DAILY_EVENT] push committed changes"
-  gl -1
-  git push
+    print_event "Attempting to commit with AI-generated message..."
+    git commit --no-edit || git commit -m "$(date)"
+
+    print_event "Displaying last commit..."
+    git --no-pager log -1 --pretty=format:'%C(magenta)%h%Creset%C(auto)%d%Creset %s %C(blue bold)— %cr ~ %an%Creset'
+
+    print_event "Pushing changes to remote repository..."
+    git push
+    print_event "Successfully pushed changes"
+else
+    print_event "No changes detected in git staging area"
 fi
+
+# Script completion
+print_event "=== Daily Maintenance Complete ==="
+print_event "Finished at:"
+date
 
