@@ -68,6 +68,7 @@ if [ -n "$(git status --porcelain)" ]; then
 
     print_event "Displaying last commit..."
     git --no-pager log -1 --pretty=format:'%C(magenta)%h%Creset%C(auto)%d%Creset %s %C(blue bold)— %cr ~ %an%Creset'
+    echo
 
     print_event "Pushing changes to remote repository..."
     git push
