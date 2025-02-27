@@ -40,16 +40,77 @@ upup daily
 # Package management
 print_event "=== Managing Package Lists ==="
 
-print_event "Deleting global pnpm packages list..."
-rm ~/dotfiles/tilde/global_packages.json
+# Function to handle errors
+handle_error() {
+    local manager=$1
+    local operation=$2
+    local error_msg=$3
+    print_event "${RED}Error during $manager $operation: $error_msg${RESET}"
+    return 1
+}
 
-print_event "Checking and updating global pnpm packages..."
-pnpm update -g  # This will update all global packages to their latest versions
+# Function to manage package lists for each package manager
+manage_packages() {
+    local manager=$1
+    local list_file="$HOME/dotfiles/tilde/${manager}_global_packages.json"
 
-print_event "Generating global pnpm packages JSON..."
-pnpm ls -g --depth=0 --json | \
-    jq '.[].unsavedDependencies |= null' | \
-    jq 'del(.[].unsavedDependencies)' > ~/dotfiles/tilde/global_packages.json
+    # Delete existing list
+    print_event "Deleting global $manager packages list..."
+    rm -f "$list_file" || handle_error "$manager" "list deletion" "Failed to delete existing list"
+
+    # Update global packages
+    print_event "Checking and updating global $manager packages..."
+    case $manager in
+        "pnpm")
+            pnpm update -g || handle_error "$manager" "update" "Failed to update packages"
+            print_event "Generating global $manager packages JSON..."
+            pnpm ls -g --depth=0 --json | \
+                jq '.[].unsavedDependencies |= null' | \
+                jq 'del(.[].unsavedDependencies)' > "$list_file" || \
+                handle_error "$manager" "list generation" "Failed to generate package list"
+            ;;
+        "npm")
+            npm update -g || handle_error "$manager" "update" "Failed to update packages"
+            print_event "Generating global $manager packages JSON..."
+            npm ls -g --depth=0 --json > "$list_file" || \
+                handle_error "$manager" "list generation" "Failed to generate package list"
+            ;;
+        "bun")
+            if command -v bun &> /dev/null; then
+                bun update -g || handle_error "$manager" "update" "Failed to update packages"
+                print_event "Generating global $manager packages JSON..."
+                bun pm ls -g --json > "$list_file" || \
+                    handle_error "$manager" "list generation" "Failed to generate package list"
+            else
+                print_event "${CYAN}Bun is not installed - skipping${RESET}"
+            fi
+            ;;
+        "deno")
+            if command -v deno &> /dev/null; then
+                print_event "Updating deno itself..."
+                deno upgrade || handle_error "$manager" "self-update" "Failed to update Deno"
+                print_event "Generating global $manager packages JSON..."
+                {
+                    echo '{'
+                    echo '  "packages": ['
+                    deno info --json | jq -r '.registries | to_entries[] | .value[]' 2>/dev/null | \
+                        jq -R 'split("@") | {name: .[0], version: .[1]}' | \
+                        jq -s '.' || echo '[]'
+                    echo '  ]'
+                    echo '}'
+                } > "$list_file" || handle_error "$manager" "list generation" "Failed to generate package list"
+            else
+                print_event "${CYAN}Deno is not installed - skipping${RESET}"
+            fi
+            ;;
+    esac
+}
+
+# Process each package manager
+for manager in "pnpm" "npm" "bun" "deno"; do
+    print_event "Processing $manager packages..."
+    manage_packages "$manager" || print_event "${RED}Failed to process $manager packages${RESET}"
+done
 
 print_event "Updating Homebrew bundle..."
 brew bundle dump --force --file=~/dotfiles/setup/Brewfile

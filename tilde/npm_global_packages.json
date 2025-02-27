@@ -1,0 +1,17 @@
+{
+  "name": "lib",
+  "dependencies": {
+    "aicommits": {
+      "version": "1.11.0",
+      "overridden": false
+    },
+    "corepack": {
+      "version": "0.31.0",
+      "overridden": false
+    },
+    "npm": {
+      "version": "11.1.0",
+      "overridden": false
+    }
+  }
+}
