@@ -1,0 +1,103 @@
+#!/bin/zsh
+
+# Script: sync-packages
+# Description: Manages and syncs package lists for various package managers
+
+source "$HOME/dotfiles/lib/utils.sh"
+
+# Function to handle errors
+handle_error() {
+    local manager=$1
+    local operation=$2
+    local error_msg=$3
+    print_event "${RED}Error during $manager $operation: $error_msg${RESET}" "SYNC"
+    return 1
+}
+
+# Function to safely remove a file if it exists
+safe_remove() {
+    local file=$1
+    if [[ -f "$file" ]]; then
+        /bin/rm "$file" 2>/dev/null
+    fi
+}
+
+# Function to manage package lists for each package manager
+manage_packages() {
+    local manager=$1
+    local list_file="$HOME/dotfiles/tilde/${manager}_global_packages.json"
+
+    # Delete existing list (only if it exists)
+    print_event "Deleting global $manager packages list..." "SYNC"
+    safe_remove "$list_file"
+
+    # Update global packages
+    print_event "Checking and updating global $manager packages..." "SYNC"
+    case $manager in
+        "pnpm")
+            # Check if any global packages are installed
+            if ! pnpm ls -g --json 2>/dev/null | jq -e '.[].dependencies' >/dev/null; then
+                print_event "No global pnpm packages found" "SYNC"
+                echo '[]' > "$list_file"
+            else
+                # Only try to update if we have packages
+                pnpm update -g 2>/dev/null
+                print_event "Generating global $manager packages JSON..." "SYNC"
+                pnpm ls -g --depth=0 --json 2>/dev/null | \
+                    jq '.[].unsavedDependencies |= null' | \
+                    jq 'del(.[].unsavedDependencies)' > "$list_file" || \
+                    echo '[]' > "$list_file"
+            fi
+            ;;
+        "npm")
+            npm update -g || handle_error "$manager" "update" "Failed to update packages"
+            print_event "Generating global $manager packages JSON..." "SYNC"
+            npm ls -g --depth=0 --json > "$list_file" || \
+                handle_error "$manager" "list generation" "Failed to generate package list"
+            ;;
+        "bun")
+            if command -v bun &> /dev/null; then
+                bun update -g || handle_error "$manager" "update" "Failed to update packages"
+                print_event "Generating global $manager packages JSON..." "SYNC"
+                bun pm ls -g --json > "$list_file" || \
+                    handle_error "$manager" "list generation" "Failed to generate package list"
+            else
+                print_event "${BLACK}Bun is not installed - skipping${RESET}"
+                echo '{"packages":[]}' > "$list_file"
+            fi
+            ;;
+        "deno")
+            if command -v deno &> /dev/null; then
+                print_event "Updating deno itself..." "SYNC"
+                deno upgrade || handle_error "$manager" "self-update" "Failed to update Deno"
+                print_event "Generating global $manager packages JSON..." "SYNC"
+                {
+                    echo '{'
+                    echo '  "packages": ['
+                    deno info --json 2>/dev/null | \
+                        jq -r '.registries | to_entries[] | .value[]' 2>/dev/null | \
+                        jq -R 'split("@") | {name: .[0], version: .[1]}' | \
+                        jq -s '.' || echo '[]'
+                    echo '  ]'
+                    echo '}'
+                } > "$list_file" || handle_error "$manager" "list generation" "Failed to generate package list"
+            else
+                print_event "${BLACK}Deno is not installed - skipping${RESET}"
+                echo '{"packages":[]}' > "$list_file"
+            fi
+            ;;
+    esac
+}
+
+print_event "=== Starting Package Management ===" "SYNC"
+
+# Process each package manager
+for manager in "pnpm" "npm" "bun" "deno"; do
+    print_event "Processing $manager packages..." "SYNC"
+    manage_packages "$manager" || print_event "${RED}Failed to process $manager packages${RESET}" "SYNC"
+done
+
+print_event "Updating Homebrew bundle..." "SYNC"
+brew bundle dump --force --file=~/dotfiles/setup/Brewfile
+
+print_event "=== Package Management Complete ===" "SYNC"

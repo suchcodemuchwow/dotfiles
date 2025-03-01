@@ -4,160 +4,40 @@
 # Description: Performs daily system maintenance and backup tasks
 # Including: package listing, brew bundle dump, mackup backup, and git operations
 
-# Catppuccin Macchiato colors
-BLUE="$(tput setaf 4)"      # blue (#8aadf4)
-RED="$(tput setaf 1)"       # red (#f38ba8)
-MAGENTA="$(tput setaf 5)"   # magenta (#f5bde6)
-CYAN="$(tput setaf 6)"      # cyan (#8bd5ca)
-WHITE="$(tput setaf 7)"     # white (#b8c0e0)
-BLACK="$(tput setaf 0)"     # black (#414559)
-BOLD="$(tput bold)"
-BG_RED="$(tput setab 1)"    # background red (#f38ba8)
-BG_BLUE="$(tput setab 4)"   # background blue (#8aadf4)
-BG_WHITE="$(tput setab 7)"  # background white (#b8c0e0)
-RESET="$(tput sgr0)"
+source "$HOME/dotfiles/lib/utils.sh"
 
-# Function to print formatted event messages
-print_event() {
-    echo -e "${BG_RED}${BLACK}${BOLD}[DAILY_EVENT]${RESET}${BG_WHITE}${BLACK}${BOLD} $1${RESET}"
-}
-
-print_event "=== Starting Daily Maintenance Script ==="
+print_event "=== Starting Daily Maintenance Script ===" "DAILY"
 date
 
-print_event "Sourcing zsh configuration..."
+print_event "Sourcing zsh configuration..." "DAILY"
 source /Users/dev/dotfiles/tilde/.zshrc
 
 # Navigate to dotfiles directory
-print_event "Changing directory to dotfiles..."
+print_event "Changing directory to dotfiles..." "DAILY"
 cd ~/dotfiles
 
 # System updates
-print_event "=== Running System Updates ==="
-print_event "Executing upup command for daily updates..."
+print_event "=== Running System Updates ===" "DAILY"
+print_event "Executing upup command for daily updates..." "DAILY"
 upup daily
 
 # Package management
-print_event "=== Managing Package Lists ==="
-
-# Function to handle errors
-handle_error() {
-    local manager=$1
-    local operation=$2
-    local error_msg=$3
-    print_event "${RED}Error during $manager $operation: $error_msg${RESET}"
-    return 1
-}
-
-# Function to safely remove a file if it exists
-safe_remove() {
-    local file=$1
-    if [[ -f "$file" ]]; then
-        /bin/rm "$file" 2>/dev/null
-    fi
-}
-
-# Function to manage package lists for each package manager
-manage_packages() {
-    local manager=$1
-    local list_file="$HOME/dotfiles/tilde/${manager}_global_packages.json"
-
-    # Delete existing list (only if it exists)
-    print_event "Deleting global $manager packages list..."
-    safe_remove "$list_file"
-
-    # Update global packages
-    print_event "Checking and updating global $manager packages..."
-    case $manager in
-        "pnpm")
-            # Create empty JSON if no packages are installed
-            if ! pnpm update -g 2>/dev/null; then
-                echo '[]' > "$list_file"
-            else
-                print_event "Generating global $manager packages JSON..."
-                pnpm ls -g --depth=0 --json 2>/dev/null | \
-                    jq '.[].unsavedDependencies |= null' | \
-                    jq 'del(.[].unsavedDependencies)' > "$list_file" || \
-                    echo '[]' > "$list_file"
-            fi
-            ;;
-        "npm")
-            npm update -g || handle_error "$manager" "update" "Failed to update packages"
-            print_event "Generating global $manager packages JSON..."
-            npm ls -g --depth=0 --json > "$list_file" || \
-                handle_error "$manager" "list generation" "Failed to generate package list"
-            ;;
-        "bun")
-            if command -v bun &> /dev/null; then
-                bun update -g || handle_error "$manager" "update" "Failed to update packages"
-                print_event "Generating global $manager packages JSON..."
-                bun pm ls -g --json > "$list_file" || \
-                    handle_error "$manager" "list generation" "Failed to generate package list"
-            else
-                print_event "${BLACK}Bun is not installed - skipping${RESET}"
-                echo '{"packages":[]}' > "$list_file"
-            fi
-            ;;
-        "deno")
-            if command -v deno &> /dev/null; then
-                print_event "Updating deno itself..."
-                deno upgrade || handle_error "$manager" "self-update" "Failed to update Deno"
-                print_event "Generating global $manager packages JSON..."
-                {
-                    echo '{'
-                    echo '  "packages": ['
-                    deno info --json 2>/dev/null | \
-                        jq -r '.registries | to_entries[] | .value[]' 2>/dev/null | \
-                        jq -R 'split("@") | {name: .[0], version: .[1]}' | \
-                        jq -s '.' || echo '[]'
-                    echo '  ]'
-                    echo '}'
-                } > "$list_file" || handle_error "$manager" "list generation" "Failed to generate package list"
-            else
-                print_event "${BLACK}Deno is not installed - skipping${RESET}"
-                echo '{"packages":[]}' > "$list_file"
-            fi
-            ;;
-    esac
-}
-
-# Process each package manager
-for manager in "pnpm" "npm" "bun" "deno"; do
-    print_event "Processing $manager packages..."
-    manage_packages "$manager" || print_event "${RED}Failed to process $manager packages${RESET}"
-done
-
-print_event "Updating Homebrew bundle..."
-brew bundle dump --force --file=~/dotfiles/setup/Brewfile
+print_event "=== Managing Package Lists ===" "DAILY"
+print_event "Executing sync-packages command..." "DAILY"
+sync-packages
 
 # Backup operations
-print_event "=== Running Backup Operations ==="
-print_event "Executing mackup backup..."
+print_event "=== Running Backup Operations ===" "DAILY"
+print_event "Executing mackup backup..." "DAILY"
 mackup backup --force && mackup uninstall --force
 
 # Git operations
-print_event "=== Performing Git Operations ==="
-print_event "Adding all changes to git..."
-git add .
-
-print_event "Checking for changes in git staging area..."
-if [ -n "$(git status --porcelain)" ]; then
-    print_event "Attempting to commit with AI-generated message..."
-    git commit --no-edit || git commit -m "$(date)"
-
-    print_event "Displaying last commit..."
-    git --no-pager log -1 --pretty=format:'%C(magenta)%h%Creset%C(auto)%d%Creset %s %C(blue bold)— %cr ~ %an%Creset'
-    echo
-
-    print_event "Pushing changes to remote repository..."
-    git push
-    print_event "Successfully pushed changes"
-else
-    print_event "No changes detected in git staging area"
-fi
+print_event "=== Performing Git Operations ===" "DAILY"
+print_event "Executing sync-git command..." "DAILY"
+sync-git
 
 # Script completion
-print_event "=== Daily Maintenance Complete ==="
-print_event "Finished at:"
+print_event "=== Daily Maintenance Complete ===" "DAILY"
+print_event "Finished at:" "DAILY"
 date
 

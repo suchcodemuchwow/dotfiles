@@ -1,0 +1,38 @@
+#!/bin/zsh
+
+# Script: sync-git
+# Description: Handles git operations for dotfiles repository
+
+source "$HOME/dotfiles/lib/utils.sh"
+
+# Function to handle git operations
+sync_git() {
+    print_event "=== Starting Git Operations ===" "GIT"
+
+    print_event "Adding all changes to git..." "GIT"
+    git add .
+
+    print_event "Checking for changes in git staging area..." "GIT"
+    if [ -n "$(git status --porcelain)" ]; then
+        print_event "Attempting to commit with AI-generated message..." "GIT"
+        git commit --no-edit || git commit -m "$(date)"
+
+        print_event "Displaying last commit..." "GIT"
+        git --no-pager log -1 --pretty=format:'%C(magenta)%h%Creset%C(auto)%d%Creset %s %C(blue bold)— %cr ~ %an%Creset'
+        echo
+
+        print_event "Pushing changes to remote repository..." "GIT"
+        git push
+        print_event "Successfully pushed changes" "GIT"
+    else
+        print_event "No changes detected in git staging area" "GIT"
+    fi
+
+    print_event "=== Git Operations Complete ===" "GIT"
+}
+
+# Execute if not being sourced
+if [[ "${ZSH_EVAL_CONTEXT}" =~ :file:$ ]]; then
+    return 0
+fi
+sync_git
