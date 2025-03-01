@@ -72,7 +72,7 @@ command_exists eza && alias ll="eza -a --no-user --long --header -g --icons --gi
 command_exists eza && alias llt="eza -a --icons --tree --git-ignore"
 
 # Safer reversible file removal: https://github.com/sindresorhus/trash-cli
-command_exists trash && alias rm="trash"
+# command_exists trash && alias rm="trash"
 
 # Tldr: https://tldr.sh/
 command_exists tldr && alias man="tldr"
