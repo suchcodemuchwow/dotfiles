@@ -24,6 +24,11 @@ sync_git() {
         print_event "Pushing changes to remote repository..." "GIT"
         git push
         print_event "Successfully pushed changes" "GIT"
+
+        # Read the last commit message and remove everything before ": "
+        last_commit_message=$(git log -1 --pretty=format:%s | sed 's/^.*:\s*//')
+        say "New commit, $last_commit_message"
+
     else
         print_event "No changes detected in git staging area" "GIT"
     fi
