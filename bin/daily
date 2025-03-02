@@ -40,3 +40,5 @@ sync-git
 print_event "=== Daily Maintenance Complete ===" "DAILY"
 print_event "Finished at:" "DAILY"
 date
+
+say "Maintenance completed at $(date)"
