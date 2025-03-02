@@ -51,6 +51,11 @@ alias pnpx="pnpm dlx"
 alias gcz="pnpx git-cz"
 alias bins="ll /Users/dev/dotfiles/bin"
 alias fuckinmackup="mackup backup --force && mackup uninstall"
+alias saytime="  defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool YES"
+alias dontsaytime="defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool NO"
+alias saytimequarter="defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsInterval -int 0"
+alias saytimehalfhour="defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsInterval -int 1"
+alias saytimehourly="defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsInterval -int 2"
 
 # Apps
 alias grip="open -a 'DataGrip.app' ."
