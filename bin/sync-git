@@ -28,7 +28,7 @@ sync_git() {
         print_event "No changes detected in git staging area" "GIT"
     fi
 
-    print_event "=== Git Operations Complete ===" "GIT"
+    print_event "=== Git Operations Completed ===" "GIT"
 }
 
 # Execute if not being sourced
