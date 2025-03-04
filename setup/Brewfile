@@ -54,7 +54,6 @@ cask "datagrip"
 cask "font-meslo-lg-nerd-font"
 cask "font-sf-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
-cask "goland"
 cask "iterm2"
 cask "microsoft-edge"
 cask "mullvadvpn"
@@ -67,6 +66,7 @@ cask "syntax-highlight"
 cask "teamviewer"
 cask "vlc"
 cask "zulu"
+cask "zulu@17"
 mas "Accelerate", id: 1459809092
 mas "AdBlock", id: 1402042596
 mas "Bitwarden", id: 1352778147
