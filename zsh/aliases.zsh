@@ -158,3 +158,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias actor="act --container-architecture linux/amd64"
 
 alias brew-list-installed="brew list --installed-on-request | xargs -I {} brew desc {}"
+
+# watchexec alias
+# Automatically run `go test` for a package when files change.
+alias autotest="watchexec -c clear -o do-nothing -d 100ms --exts go 'pkg=\".\${WATCHEXEC_COMMON_PATH/\$PWD/}/...\"; echo \"running tests for \$pkg\"; go test \"\$pkg\"'"
