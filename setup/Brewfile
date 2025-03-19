@@ -10,6 +10,7 @@ tap "stripe/stripe-cli"
 tap "supabase/tap"
 tap "teamookla/speedtest"
 tap "trentm/tap"
+tap "xo/xo"
 brew "bat"
 brew "ruby"
 brew "cocoapods"
@@ -53,7 +54,6 @@ cask "beekeeper-studio"
 cask "betterdisplay"
 cask "clickup"
 cask "coteditor"
-cask "datagrip"
 cask "font-meslo-lg-nerd-font"
 cask "font-sf-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
@@ -63,19 +63,13 @@ cask "mullvadvpn"
 cask "ngrok"
 cask "orbstack"
 cask "postman"
-cask "rectangle"
 cask "sensiblesidebuttons"
 cask "syntax-highlight"
 cask "teamviewer"
 cask "vlc"
 cask "zulu"
-cask "zulu@17"
-mas "Accelerate", id: 1459809092
-mas "AdBlock", id: 1402042596
 mas "Bitwarden", id: 1352778147
-mas "CleanMyMac", id: 1339170533
 mas "ColorSlurp", id: 1287239339
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
-mas "Speedtest", id: 1153157709
 mas "Xcode", id: 497799835
