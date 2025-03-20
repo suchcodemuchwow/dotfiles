@@ -25,7 +25,6 @@ alias reload="source ~/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
 # Sane defaults for built-ins (verbose and interactive)
 alias cp='cp -iv'
 alias mv='mv -iv'
-alias rm='rm -iv'
 alias grep="grep -i --color=auto"
 
 # Typos
@@ -51,7 +50,7 @@ alias pnpx="pnpm dlx"
 alias gcz="pnpx git-cz"
 alias bins="ll /Users/dev/dotfiles/bin"
 alias fuckinmackup="mackup backup --force && mackup uninstall"
-alias saytime="  defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool YES;killall SystemUIServer"
+alias saytime="defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool YES;killall SystemUIServer"
 alias dontsaytime="defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsEnabled -bool NO;killall SystemUIServer"
 alias saytimequarter="defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsInterval -int 0;killall SystemUIServer"
 alias saytimehalfhour="defaults write com.apple.speech.synthesis.general.prefs TimeAnnouncementPrefs -dict-add TimeAnnouncementsInterval -int 1;killall SystemUIServer"
