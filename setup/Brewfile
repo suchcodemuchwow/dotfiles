@@ -68,6 +68,7 @@ cask "postman"
 cask "sensiblesidebuttons"
 cask "syntax-highlight"
 cask "teamviewer"
+cask "telegram"
 cask "vlc"
 cask "zulu"
 mas "Bitwarden", id: 1352778147
