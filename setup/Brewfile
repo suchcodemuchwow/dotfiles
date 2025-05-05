@@ -76,7 +76,6 @@ mas "Bitwarden", id: 1352778147
 mas "ColorSlurp", id: 1287239339
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
-mas "Xcode", id: 497799835
 vscode "adpyke.vscode-sql-formatter"
 vscode "aslamanver.node-js-dependency-manager"
 vscode "biomejs.biome"
