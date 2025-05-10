@@ -4,13 +4,17 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-command_timeout = 3600000
+command_timeout = 10000
 # ~/.config/starship.toml
 
 [battery]
 full_symbol = "🔋"
 charging_symbol = "🔌"
 discharging_symbol = "⚡"
+
+# [[battery.display]]
+# threshold = 100
+# style = "dimmed white"
 
 [[battery.display]]
 threshold = 30
@@ -20,12 +24,9 @@ style = "bold red"
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 error_symbol = "[✖](bold red) "
 
-#[cmd_duration]
-#format = " took [$duration]($style)"
-
 [cmd_duration]
-min_time = 500
-format = 'underwent [$duration](bold yellow)'
+min_time = 200
+format = '[⌛ $duration](bold yellow) '
 
 [directory]
 truncation_length = 5
@@ -37,7 +38,7 @@ format = " via [$symbol$version](bold green)"
 # Git-related sections
 [git_branch]
 format = " [$symbol$branch]($style)"
-symbol = "🍣 "
+symbol = "🌱 "
 style = "bold yellow"
 
 [git_commit]
@@ -69,19 +70,24 @@ trim_at = "-"
 style = "bold dimmed white"
 disabled = true
 
-[julia]
-format = "[$symbol$version]($style) "
-symbol = "ஃ "
-style = "bold green"
-
 [memory_usage]
-format = "$symbol[${ram}( | ${swap})]($style) "
+symbol = "🧠 "
+format = "$symbol[${ram_pct}% (RAM)${swap_pct:+ | ${swap_pct}% SWAP}]($style) "
 threshold = 70
 style = "bold dimmed white"
-disabled = false
 
 [package]
+disabled = false
+format = '[📦 $version](blue bold) '
+
+[docker_context]
+format = "via [🐳 $context](blue bold)"
+only_with_files = false
+
+[shell]
 disabled = true
+format = "[$indicator]($style) "
+style = "bold blue"
 
 [python]
 format = "[$symbol$version]($style) "
