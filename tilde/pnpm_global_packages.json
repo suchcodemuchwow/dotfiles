@@ -1,14 +1,1 @@
-[
-  {
-    "path": "/Users/dev/Library/pnpm/global/5",
-    "private": false,
-    "dependencies": {
-      "turbo": {
-        "from": "turbo",
-        "version": "2.4.4",
-        "resolved": "https://registry.npmjs.org/turbo/-/turbo-2.4.4.tgz",
-        "path": "/Users/dev/Library/pnpm/global/5/.pnpm/turbo@2.4.4/node_modules/turbo"
-      }
-    }
-  }
-]
+[]
