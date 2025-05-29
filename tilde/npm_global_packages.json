@@ -1,16 +1,16 @@
 {
   "name": "lib",
   "dependencies": {
-    "@nestjs/cli": {
-      "version": "11.0.7",
-      "overridden": false
-    },
-    "aicommits": {
-      "version": "1.11.0",
+    "biome": {
+      "version": "0.3.3",
       "overridden": false
     },
     "corepack": {
       "version": "0.32.0",
+      "overridden": false
+    },
+    "npm-check-updates": {
+      "version": "18.0.1",
       "overridden": false
     },
     "npm": {
