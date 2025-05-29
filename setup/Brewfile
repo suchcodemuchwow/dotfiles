@@ -77,13 +77,10 @@ mas "Bitwarden", id: 1352778147
 mas "ColorSlurp", id: 1287239339
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
-vscode "adpyke.vscode-sql-formatter"
-vscode "aslamanver.node-js-dependency-manager"
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"
 vscode "bruceyuhb.hsl-preview"
 vscode "catppuccin.catppuccin-vsc"
-vscode "chakrounanas.turbo-console-log"
 vscode "dbaeumer.vscode-eslint"
 vscode "denoland.vscode-deno"
 vscode "editorconfig.editorconfig"
@@ -97,6 +94,7 @@ vscode "golang.go"
 vscode "lokalise.i18n-ally"
 vscode "mikestead.dotenv"
 vscode "ms-azuretools.vscode-docker"
+vscode "ms-edgedevtools.vscode-edge-devtools"
 vscode "ms-vscode.makefile-tools"
 vscode "naumovs.color-highlight"
 vscode "redhat.vscode-yaml"
