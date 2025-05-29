@@ -1,8 +1,12 @@
 {
   "name": "lib",
   "dependencies": {
-    "biome": {
-      "version": "0.3.3",
+    "@biomejs/biome": {
+      "version": "1.9.4",
+      "overridden": false
+    },
+    "aicommits": {
+      "version": "1.11.0",
       "overridden": false
     },
     "corepack": {
