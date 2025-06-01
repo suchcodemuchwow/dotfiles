@@ -176,18 +176,11 @@ install_dotfiles() {
   symlink_file "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
   symlink_file "$DOTFILES_DIR/git/.gitignore" "$HOME/.gitignore"
 
-  # CotEditor: install `cot` command-line tool
-#  sudo symlink_file "/Applications/CotEditor.app/Contents/SharedSupport/bin/cot" "/usr/local/bin/cot"
-
   # Lazydocker
   symlink_file "$DOTFILES_DIR/lazydocker/config.yml" "$HOME/Library/Application Support/lazydocker/config.yml"
 
   # Lazygit
   symlink_file "$DOTFILES_DIR/lazygit/state.yml" "$HOME/Library/Application Support/lazygit/state.yml"
-
-  # Marta file manager
-  symlink_file "$DOTFILES_DIR/marta/conf.marco" "$HOME/Library/Application Support/org.yanex.marta/conf.marco"
-  symlink_file "$DOTFILES_DIR/marta/favorites.marco" "$HOME/Library/Application Support/org.yanex.marta/favorites.marco"
 }
 
 install_dotfiles
