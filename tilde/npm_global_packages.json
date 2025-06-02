@@ -13,6 +13,10 @@
       "version": "0.33.0",
       "overridden": false
     },
+    "node-llama-cpp": {
+      "version": "3.8.1",
+      "overridden": false
+    },
     "npm-check-updates": {
       "version": "18.0.1",
       "overridden": false
