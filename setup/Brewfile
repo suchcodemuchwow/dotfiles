@@ -73,6 +73,7 @@ cask "spaceman"
 cask "stats"
 cask "syntax-highlight"
 cask "textmate"
+cask "transmission"
 cask "vlc"
 cask "zulu"
 mas "Bitwarden", id: 1352778147
