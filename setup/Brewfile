@@ -83,6 +83,7 @@ mas "Numbers", id: 409203825
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"
 vscode "bruceyuhb.hsl-preview"
+vscode "byi8220.indented-block-highlighting"
 vscode "catppuccin.catppuccin-vsc"
 vscode "christian-kohler.path-intellisense"
 vscode "dbaeumer.vscode-eslint"
