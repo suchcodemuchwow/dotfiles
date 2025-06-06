@@ -36,6 +36,7 @@ brew "openai-whisper"
 brew "pgcli"
 brew "pipx"
 brew "pnpm"
+brew "speedtest-cli", link: false
 brew "starship"
 brew "terminal-notifier"
 brew "tldr"
