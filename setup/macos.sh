@@ -511,6 +511,9 @@ command -v tmutil &> /dev/null && sudo tmutil disablelocal
 # Enable Dashboard dev mode (allows keeping widgets on the desktop)
 #defaults write com.apple.dashboard devmode -bool true
 
+# Disable the annoying disk eject notification
+defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && pkill diskarbitrationd
+
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
