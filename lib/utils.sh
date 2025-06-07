@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Catppuccin Macchiato colors
+# Catppuccin Macchiato colors for terminal output
 BLUE="$(tput setaf 4)"      # blue (#8aadf4)
 RED="$(tput setaf 1)"       # red (#f38ba8)
 MAGENTA="$(tput setaf 5)"   # magenta (#f5bde6)
