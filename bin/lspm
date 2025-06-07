@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# List global npm, yarn, pnpm, bun, deno packages
+
+echo "=== NPM Global Packages ==="
+if command -v npm &> /dev/null; then
+    npm list -g --depth=0 2>/dev/null || echo "No npm global packages found or npm not installed"
+else
+    echo "npm not installed"
+fi
+
+echo -e "\n=== Yarn Global Packages ==="
+if command -v yarn &> /dev/null; then
+    # Check if this is Yarn v1 (classic) or v2+ (berry)
+    yarn_version=$(yarn --version 2>/dev/null)
+    if [[ "$yarn_version" =~ ^1\. ]]; then
+        yarn global list 2>/dev/null || echo "No yarn global packages found"
+    else
+        echo "Yarn v2+ detected - global packages not supported"
+    fi
+else
+    echo "yarn not installed"
+fi
+
+echo -e "\n=== PNPM Global Packages ==="
+if command -v pnpm &> /dev/null; then
+    pnpm list -g --depth=0 2>/dev/null || echo "No pnpm global packages found or pnpm not installed"
+else
+    echo "pnpm not installed"
+fi
+
+echo -e "\n=== Bun Global Packages ==="
+if command -v bun &> /dev/null; then
+    bun pm ls -g 2>/dev/null || echo "No bun global packages found or bun not installed"
+else
+    echo "bun not installed"
+fi
+
+echo -e "\n=== Deno Global Packages ==="
+if command -v deno &> /dev/null; then
+    if [ -d "$HOME/.deno/bin" ]; then
+        echo "Deno installed scripts:"
+        ls -la "$HOME/.deno/bin" 2>/dev/null || echo "No deno global scripts found"
+    else
+        echo "No deno global packages found"
+    fi
+else
+    echo "deno not installed"
+fi
