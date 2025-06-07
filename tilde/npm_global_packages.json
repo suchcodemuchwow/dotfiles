@@ -13,6 +13,14 @@
       "version": "0.33.0",
       "overridden": false
     },
+    "degit": {
+      "version": "2.8.4",
+      "overridden": false
+    },
+    "mailsy": {
+      "version": "5.0.0",
+      "overridden": false
+    },
     "node-llama-cpp": {
       "version": "3.9.0",
       "overridden": false
