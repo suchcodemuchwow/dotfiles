@@ -62,6 +62,7 @@ mas "Bitwarden", id: 1352778147
 mas "ColorSlurp", id: 1287239339
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
+vscode "anweber.vscode-httpyac"
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"
 vscode "bruceyuhb.hsl-preview"
