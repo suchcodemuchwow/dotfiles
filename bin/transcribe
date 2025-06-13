@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 \"video-file.mkv\""
+  exit 1
+fi
+
+INPUT="$1"
+BASENAME="${INPUT%.*}"
+MODEL_PATH=~/whisper/models/ggml-model-whisper-large-q5_0.bin
+
+ffmpeg -i "$INPUT" -vn -ar 16000 -ac 1 -f wav - | whisper-cli -m "$MODEL_PATH" -pp -f - -osrt -of "$BASENAME"
