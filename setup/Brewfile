@@ -22,6 +22,7 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "git-delta"
+brew "http-server"
 brew "jq"
 brew "libpq"
 brew "llama.cpp"
@@ -66,6 +67,7 @@ mas "ColorSlurp", id: 1287239339
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
 vscode "anweber.vscode-httpyac"
+vscode "bcanzanella.openmatchingfiles"
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"
 vscode "bruceyuhb.hsl-preview"
