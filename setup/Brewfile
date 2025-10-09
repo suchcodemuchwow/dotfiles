@@ -11,6 +11,7 @@ tap "teamookla/speedtest"
 tap "trentm/tap"
 tap "xo/xo"
 brew "bat"
+brew "codex"
 brew "colima"
 brew "coreutils"
 brew "docker"
@@ -70,7 +71,6 @@ cask "textmate"
 cask "transmission"
 cask "vlc"
 mas "Bitwarden", id: 1352778147
-mas "ColorSlurp", id: 1287239339
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
 vscode "anweber.vscode-httpyac"
