@@ -74,6 +74,7 @@ mas "Bitwarden", id: 1352778147
 mas "Klack", id: 6446206067
 mas "Numbers", id: 409203825
 vscode "anweber.vscode-httpyac"
+vscode "ardonplay.vscode-jetbrains-icon-theme"
 vscode "bcanzanella.openmatchingfiles"
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"
