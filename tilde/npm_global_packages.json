@@ -2,7 +2,7 @@
   "name": "lib",
   "dependencies": {
     "npm": {
-      "version": "11.6.2",
+      "version": "11.6.3",
       "overridden": false
     }
   }
