@@ -83,6 +83,16 @@ cask "syntax-highlight"
 cask "textmate"
 cask "transmission"
 cask "vlc"
+mas "Bitwarden", id: 1352778147
+mas "Cut the Rope Remastered", id: 1524615151
+mas "EverybodyShogi", id: 6737407490
+mas "Klack", id: 6446206067
+mas "Numbers", id: 409203825
+mas "piano", id: 6670312500
+mas "Piffle+", id: 6742088715
+mas "puffies", id: 1659992476
+mas "WHAT THE CLASH?", id: 1668359542
+mas "WhatsApp", id: 310633997
 vscode "anweber.vscode-httpyac"
 vscode "ardonplay.vscode-jetbrains-icon-theme"
 vscode "bcanzanella.openmatchingfiles"
